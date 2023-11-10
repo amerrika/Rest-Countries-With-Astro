@@ -1,0 +1,23 @@
+---
+import "../../sass/main.scss";
+
+const {
+  label,
+  controls,
+  expanded,
+  className,
+  style = "primary",
+  ...rest
+} = Astro.props;
+---
+
+<button
+  aria-label={label}
+  aria-controls={controls}
+  aria-expanded={expanded}
+  data-style={style}
+  class:list={["button", className]}
+  {...rest}
+>
+  <slot />
+</button>

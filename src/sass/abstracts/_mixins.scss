@@ -1,0 +1,80 @@
+@use "sass:meta";
+@use "sass:math";
+@use "sass:map";
+@use "colors" as *;
+@use "breakpoints" as *;
+@use "tokens" as *;
+
+// Colors (creating utility classes)
+@mixin colors-generator($attribute: "color") {
+  @each $clr-name, $clr-map in $colors {
+    &-#{$clr-name} {
+      @each $clr-shade, $clr-value in $clr-map {
+        &-#{$clr-shade} {
+          #{$attribute}: $clr-value;
+        }
+      }
+    }
+  }
+}
+
+// Media query
+@mixin mq($size) {
+  @if map.has-key($breakpoints, $size) {
+    $breakpoint: map-get($breakpoints, $size);
+    @media screen and (min-width: $breakpoint) {
+      @content;
+    }
+  } @else if meta.type-of($size) == number {
+    @if math.is-unitless($size) {
+      @error 'when using a number with mq() make sure to include a unit';
+    } @else {
+      @media screen and (min-width: $size) {
+        @content;
+      }
+    }
+  } @else {
+    @error 'the keyword #{$size} is not in the $breakpoints map';
+  }
+}
+
+// Container (creating utility classes)
+@mixin container($width, $padding) {
+  width: min($width, 100% - $padding);
+  margin-inline: auto;
+}
+
+// Heading
+@mixin heading($fs, $fw, $color: $heading-clr-default) {
+  font-size: $fs;
+  font-weight: $fw;
+  color: $color;
+
+  font-family: $heading-ff;
+  text-transform: $heading-tt;
+  letter-spacing: $heading-ls;
+  line-height: $heading-line-height;
+}
+
+// Mixins added for this project
+
+// Underline hover
+@mixin hover($offset: 7px) {
+  text-decoration-line: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: var(--body-text-clr);
+  text-decoration-thickness: 1px;
+  text-underline-offset: $offset;
+}
+
+// Focus
+@mixin focus($offset: 3px) {
+  &:focus,
+  &:focus-visible {
+    outline: 3px dotted black;
+    outline-offset: $offset;
+  }
+  &:focus:not(:focus-visible) {
+    outline: 0;
+  }
+}

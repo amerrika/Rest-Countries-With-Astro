@@ -1,0 +1,77 @@
+@use "../abstracts/" as *;
+
+.desktop-nav {
+  visibility: visible;
+  position: static;
+
+  &[data-active="false"] {
+    visibility: hidden;
+    z-index: -99;
+    position: absolute;
+    left: 0;
+  }
+
+  .menu {
+    display: flex;
+    gap: 2rem;
+  }
+}
+
+.mobile-nav {
+  width: 100%;
+  display: none;
+
+  &[data-active="true"] {
+    display: block;
+  }
+
+  .menu {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+}
+
+// Nav links styling
+.desktop-nav,
+.mobile-nav,
+.has-dropdown {
+  a {
+    font-family: $navigation-link-ff;
+    color: $navigation-link-clr;
+    letter-spacing: $navigation-link-ls;
+    font-size: $navigation-link-fs;
+    font-weight: $navigation-link-fw;
+
+    &:hover {
+      color: $navigation-link-clr-hover;
+    }
+
+    &:focus,
+    &:focus-visible {
+      outline: 3px dotted $neutral-900;
+      outline-offset: 1px;
+    }
+
+    &:focus:not(:focus-visible) {
+      outline: 0;
+    }
+
+    // active link
+    &[aria-current="page"] {
+      font-weight: $navigation-link-active-fw;
+    }
+  }
+}
+
+// Extra mobile nav-link stylings
+.mobile-nav {
+  a,
+  .has-dropdown {
+    display: block;
+    padding-block: 8px;
+    border-block-end-style: solid;
+    border-block-end-width: 1px;
+    border-block-end-color: $mobile-nav-link-border-bottom-clr;
+  }
+}

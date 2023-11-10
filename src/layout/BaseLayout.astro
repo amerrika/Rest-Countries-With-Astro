@@ -1,0 +1,27 @@
+---
+import Header from "../components/Header.astro";
+const {title} = Astro.props;
+---
+
+<html lang="en" data-mode="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- title -->
+    <title>{title}</title>
+
+    <!-- favicon -->
+    <link rel="icon" href="../favicon.svg" />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>
+
+<style lang="scss">
+  @use "../sass/abstracts/" as *;
+</style>

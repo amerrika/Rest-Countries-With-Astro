@@ -1,0 +1,64 @@
+@use "../abstracts/" as *;
+
+#form {
+  display: grid;
+
+  input,
+  textarea {
+    padding-block: 1.2rem;
+    padding-inline: 1.6rem;
+    border-radius: 0.5rem;
+    border: 2px solid $neutral-400;
+    outline: 2px solid transparent;
+    font-size: $fs-500;
+    color: $neutral-900;
+
+    &:focus-visible {
+      outline-color: $neutral-900;
+      outline-offset: -2px;
+    }
+
+    &::placeholder {
+      color: $neutral-900;
+      opacity: 1;
+      font-size: $fs-300;
+    }
+  }
+
+  textarea {
+    height: 20rem;
+  }
+
+  button {
+    &:hover {
+      @include mq(medium) {
+        text-decoration: underline;
+        text-underline-offset: 5px;
+      }
+    }
+  }
+
+  .is-invalid,
+  .was-validated:invalid {
+    border-color: $alert-red;
+  }
+}
+
+.empty-feedback,
+.invalid-feedback {
+  font-size: $fs-300;
+  color: $alert-red;
+}
+
+.empty-feedback,
+.invalid-feedback {
+  display: none;
+}
+
+.was-validated :placeholder-shown:invalid ~ .empty-feedback {
+  display: block;
+}
+
+.was-validated :not(:placeholder-shown):invalid ~ .invalid-feedback {
+  display: block;
+}

@@ -1,0 +1,23 @@
+---
+// imports
+import "../sass/main.scss";
+import BaseLayout from "../layout/BaseLayout.astro";
+import Search from "../components/Search.astro";
+import Card from "../components/Card.astro";
+
+// data fetching from restcountries.com
+const region = Astro.url.searchParams.get("region");
+// region is a search param for filtering by regions, defined in Search.astro;
+
+const response = region
+  ? await fetch(`https://restcountries.com/v3.1/region/${region}`)
+  : await fetch("https://restcountries.com/v3.1/all");
+const data = await response.json();
+---
+
+<BaseLayout title="Get the facts about any country in the world">
+  <Search />
+  <section aria-label="Countries" class="countries container pb-500">
+    {data.map((data) => <Card country={data} />)}
+  </section>
+</BaseLayout>

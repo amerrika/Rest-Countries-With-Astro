@@ -1,0 +1,105 @@
+---
+// imports
+import "../sass/main.scss";
+
+// regions for filtering
+const regions = ["Africa", "Americas", "Asia", "Europe", "Oceania"];
+---
+
+<div class="search-component container pb-500">
+  <div class="input-wrapper">
+    <input
+      id="input-search"
+      type="search"
+      placeholder="Search for a country..."
+    />
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M14.9536 14.9458L21 21M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"></path>
+    </svg>
+  </div>
+
+  <div class="filter-box">
+    <button
+      id="dropdown-button"
+      class="button has-icon fs-300"
+      aria-haspopup="true"
+      aria-controls="filter-options"
+      aria-expanded="false"
+    >
+      Filter by Region
+    </button>
+    <ul id="filter-options" class="filter-list display-none">
+      {
+        regions.map((region) => (
+          <li data-region={region.toLowerCase()}>
+            <span>{region}</span>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</div>
+
+<script>
+  // Elements
+  const dropdownButton = document.getElementById("dropdown-button");
+  const regionsList = document.querySelector(".filter-list");
+  const searchInput = document.getElementById("input-search");
+  const allCountries = Array.from(document.querySelectorAll("[data-name]"));
+  const html = document.documentElement;
+
+  // Functionalities
+
+  // 1. Dropdown-button toggle functionality
+  dropdownButton.addEventListener("click", () => {
+    const attribut = dropdownButton.getAttribute("aria-expanded");
+    // Toggle aria-expanded attribute
+    attribut === "false"
+      ? dropdownButton.setAttribute("aria-expanded", "true")
+      : dropdownButton.setAttribute("aria-expanded", "false");
+  });
+
+  // 2. Selecting a region functionality
+  regionsList.addEventListener("click", (e) => {
+    const listItem = e.target.closest("li");
+    // if clicked outside <li>, we get null,
+    // and we are stopping the process
+    if (listItem === null) return;
+    // when clicked inside <li> proceed and get the attribute
+    const attribute = listItem.getAttribute("data-region");
+    // working with URL, setting search parameter
+    const url = new URL(window.location.origin);
+    url.searchParams.set("region", attribute);
+    // replace current querystring with the new one
+    window.location.assign(url);
+  });
+
+  // 3. Search input functionality
+  searchInput.addEventListener("input", (e) => {
+    const inputValue = e.target.value.toLowerCase();
+    // Hide countries that do not contain inputValue in their name
+    allCountries.forEach((country) => {
+      if (!country.dataset.name.toLowerCase().includes(inputValue)) {
+        country.classList.add("display-none");
+      } else {
+        country.classList.remove("display-none");
+      }
+    });
+  });
+
+  // 4. Closing regions-list when clicked outside the button or the list
+  html.addEventListener("click", (e) => {
+    if (e.target !== regionsList && e.target !== dropdownButton) {
+      dropdownButton.setAttribute("aria-expanded", "false");
+    }
+  });
+
+  // 5. Clear search input when page refreshed
+  document.addEventListener("DOMContentLoaded", () => {
+    searchInput.value = "";
+  });
+</script>

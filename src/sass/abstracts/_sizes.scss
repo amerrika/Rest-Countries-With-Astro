@@ -1,0 +1,42 @@
+// Fixed sizes for creating margin & padding utility classes
+$sizes: (
+  0: 0rem,
+  1: 0.5rem,
+  2: 1rem,
+  3: 1.5rem,
+  4: 2rem,
+  5: 3rem,
+  6: 4rem,
+  7: 5rem,
+  8: 6rem,
+  9: 8rem,
+  10: 10rem,
+);
+
+// Responsive padding sizes for responsive padding utility classes
+$padding-responsive-sizes: (
+  100: calc(4% - 2px),
+  300: calc(8px + 0.5625vw),
+  500: calc(8px + 1.5625vw),
+  800: calc(20px + 5.5625vw),
+  //--- NOTES ---//
+  // size of 100 is usually used for cards, boxes...
+  // it gets smaller on smaller displays than 300, 800 but bigger on bigger displays than those ones,,,
+);
+
+// Padding variables
+$p-800: calc(20px + 5.5625vw);
+$p-500: calc(8px + 1.5625vw);
+
+// Container width sizes
+$container-max-width-default: 1400px;
+$container-max-width-narrow: 900px;
+
+// Border-radius sizes for utility classes
+$br-sizes: (
+  5: 0.5rem,
+  10: 1rem,
+  15: 1.5rem,
+  20: 2rem,
+  50: 5rem,
+);

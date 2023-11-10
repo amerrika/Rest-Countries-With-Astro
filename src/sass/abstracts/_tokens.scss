@@ -1,0 +1,115 @@
+@use "typography" as *;
+@use "colors" as *;
+@use "sizes" as *;
+@use "shadows" as *;
+
+// BODY
+$body-txt-clr: var(--body-text-clr);
+$body-bg-clr: $neutral-200;
+
+// LAYOUT
+$grid-gap: 5rem;
+
+// BUTTONS
+$button-clr-def: $body-txt-clr;
+$button-ff: $ff-base;
+$button-fs: $fs-500;
+$button-fw: $fw-400;
+$button-ls: 0;
+$button-tt: unset;
+$button-padding: 1rem 2rem;
+$button-default-bg: transparent;
+$button-border: 2px solid;
+$button-br: .5rem;
+// Primary
+$button-primary-bg: transparent;
+$button-primary-clr: $button-clr-def;
+$button-primary-border-clr: transparent;
+$button-primary-bg-hover: transparent;
+$button-primary-clr-hover: unset;
+$button-primary-outline: transparent;
+$button-primary-outline-offset: 0;
+// Outline
+$button-outline-bg: $neutral-100;
+$button-outline-clr: $button-clr-def;
+$button-outline-border-clr: $neutral-900;
+$button-outline-bg-hover: $neutral-700;
+$button-outline-clr-hover: $neutral-100;
+$button-outline-outline: none;
+$button-outline-outline-offset: 0;
+// Inverted
+$button-inverted-bg: $neutral-100;
+$button-inverted-clr: $neutral-900;
+$button-inverted-border-clr: $neutral-100;
+$button-inverted-bg-hover: $neutral-300;
+$button-inverted-clr-hover: $neutral-900;
+$button-inverted-outline: none;
+$button-inverted-outline-offset: 0;
+// Muted
+$button-muted-padding: 0;
+$button-muted-bg: transparent;
+$button-muted-clr: $button-clr-def;
+$button-muted-border-clr: transparent;
+$button-muted-bg-hover: transparent;
+$button-muted-clr-hover: $button-clr-def;
+$button-muted-outline: 3px dotted black;
+$button-muted-outline-offset: 2px;
+
+// HEADINGS
+$heading-ff: $ff-accent;
+$heading-tt: unset;
+$heading-ls: 0;
+$heading-line-height: 1.1;
+$heading-clr-default: $neutral-900;
+
+$heading-1-fs: $fs-h1;
+$heading-1-fw: $fw-bold;
+$heading-1-clr: $heading-clr-default;
+
+$heading-2-fs: $fs-h2;
+$heading-2-fw: $fw-bold;
+$heading-2-clr: $heading-clr-default;
+
+$heading-3-fs: $fs-h3;
+$heading-3-fw: $fw-medium;
+$heading-3-clr: $heading-clr-default;
+
+// FOOTER
+$footer-bg-clr: $neutral-100;
+$footer-clr: $neutral-700;
+$footer-fs: $fs-300;
+$footer-fw: $fw-regular;
+// link
+$footer-link-ff: $ff-base;
+$footer-link-clr: $neutral-700;
+$footer-link-clr-hover: $neutral-900;
+$footer-link-ls: 0;
+$footer-link-fs: $fs-300;
+$footer-link-fw: $fw-regular;
+
+// HEADER
+$header-box-shadow: $header-shadow;
+$header-bg-clr: var(--bg-active-100);
+$header-fs: $fs-500;
+$header-fw: $fw-regular;
+
+// NAVIGATION
+// link
+$navigation-link-ff: $ff-base;
+$navigation-link-clr: $neutral-700;
+$navigation-link-clr-hover: $neutral-600;
+$navigation-link-ls: 0;
+$navigation-link-fs: $fs-300;
+$navigation-link-fw: $fw-regular;
+
+$navigation-link-clr-hover: $neutral-900;
+$navigation-link-active-fw: $fw-bold;
+
+$mobile-nav-link-border-bottom-clr: $neutral-300;
+
+// ICON HOLDER
+$icon-holder-bg-clr: #3353a2;
+$icon-holder-width: 4rem;
+$icon-holder-height: 4rem;
+$icon-holder-br: 10rem;
+$icon-holder-padding: 1rem;

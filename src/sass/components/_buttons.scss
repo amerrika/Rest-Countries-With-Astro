@@ -1,0 +1,177 @@
+@use "../abstracts/" as *;
+
+// Prefixed
+
+.button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+  line-height: 1.5;
+  letter-spacing: $button-ls;
+  font-family: $button-ff;
+  font-size: $button-fs;
+  font-weight: $button-fw;
+  text-transform: $button-tt;
+  padding: $button-padding;
+  background-color: $button-default-bg;
+  border: $button-border;
+  border-radius: $button-br;
+  transition: none;
+
+  // Primary
+  &[data-style="primary"] {
+    background-color: $button-primary-bg;
+    color: $button-primary-clr;
+    border-color: $button-primary-border-clr;
+
+    &:hover {
+      background-color: $button-primary-bg-hover;
+      color: $button-primary-clr-hover;
+    }
+
+    &:focus,
+    &:focus-visible {
+      outline: $button-primary-outline;
+      outline-offset: $button-primary-outline-offset;
+    }
+    &:focus:not(:focus-visible) {
+      outline: 0;
+    }
+  }
+
+  // Outline
+  &[data-style="outline"] {
+    background-color: $button-outline-bg;
+    color: $button-outline-clr;
+    border-color: $button-outline-border-clr;
+
+    &:hover {
+      background-color: $button-outline-bg-hover;
+      color: $button-outline-clr-hover;
+    }
+
+    &:focus,
+    &:focus-visible {
+      outline: $button-outline-outline;
+      outline-offset: $button-outline-outline-offset;
+    }
+    &:focus:not(:focus-visible) {
+      outline: 0;
+    }
+  }
+
+  // Inverted
+  &[data-style="inverted"] {
+    background-color: $button-inverted-bg;
+    color: $button-inverted-clr;
+    border-color: $button-inverted-border-clr;
+
+    &:hover {
+      background-color: $button-inverted-bg-hover;
+      color: $button-inverted-clr-hover;
+    }
+
+    &:focus,
+    &:focus-visible {
+      outline: $button-inverted-outline;
+      outline-offset: $button-inverted-outline-offset;
+    }
+    &:focus:not(:focus-visible) {
+      outline: 0;
+    }
+  }
+
+  // Muted
+  &[data-style="muted"] {
+    background-color: $button-muted-bg;
+    color: var(--body-text-clr);
+    border-color: $button-muted-border-clr;
+    padding: $button-muted-padding;
+
+    &:hover {
+      background-color: $button-muted-bg-hover;
+      color: $button-muted-clr-hover;
+    }
+
+    &:focus,
+    &:focus-visible {
+      outline: $button-muted-outline;
+      outline-offset: $button-muted-outline-offset;
+    }
+    &:focus:not(:focus-visible) {
+      outline: 0;
+    }
+  }
+
+  &.has-icon {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    svg,
+    img {
+      width: 25px;
+      height: 25px;
+    }
+  }
+}
+
+// Button back
+#button-back {
+  padding-block: 0.5rem;
+  padding-inline-start: 2rem;
+  padding-inline-end: 3rem;
+  background-color: var(--bg-active-100);
+  color: var(--body-text-clr);
+  box-shadow: 1px 1px 6px 1px rgba(0, 0, 0, 0.1);
+  font-size: $fs-500;
+  &:hover {
+    @include hover;
+  }
+}
+
+// Dropdown button for selecting regions
+#dropdown-button {
+  border: none;
+  cursor: pointer;
+  padding-block: 2rem;
+  padding-inline: 3rem;
+  box-shadow: 1px 1px 6px 1px rgba(0, 0, 0, 0.1);
+  background-color: var(--header-bg-clr);
+  color: inherit;
+  border-radius: 1rem;
+
+  @include focus;
+
+  &:hover {
+    @include hover;
+  }
+
+  // Arrow icon
+  &::after {
+    content: "";
+    width: 1rem;
+    height: 1rem;
+    margin-top: -0.25rem;
+    border-style: solid;
+    border-width: 0.2em 0.2em 0 0;
+    border-color: var(--body-text-clr);
+    transform: rotate(135deg);
+  }
+
+  // Displaying regions list;
+  &[aria-expanded="true"] {
+    & ~ ul {
+      display: grid;
+    }
+  }
+}
+
+// Dark/light mode button
+#mode-button {
+  &:hover {
+    @include hover;
+  }
+}

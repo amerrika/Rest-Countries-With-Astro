@@ -1,0 +1,21 @@
+@use "../abstracts/" as *;
+
+// Use svg icons
+
+.icon-holder {
+    background-color: $icon-holder-bg-clr;
+    width: $icon-holder-width;
+    height: $icon-holder-height;
+    padding: $icon-holder-padding;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border-radius: $icon-holder-br;
+
+    img {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+}

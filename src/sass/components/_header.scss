@@ -1,0 +1,35 @@
+@use "../abstracts/" as *;
+
+.header {
+  // Prefixed
+  box-shadow: $header-box-shadow;
+  font-size: $header-fs;
+  font-weight: $header-fw;
+  background-color: $header-bg-clr;
+
+  // Added for this poroject
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+  }
+
+  h1 {
+    a {
+      @include focus;
+      a:hover {
+        @include hover;
+      }
+    }
+    flex-grow: 2;
+  }
+}
+
+.icon-github {
+  display: none;
+  @include mq(small){
+   display: unset; 
+   @include focus;
+  }
+}

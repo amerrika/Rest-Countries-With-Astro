@@ -1,0 +1,38 @@
+---
+import "../sass/main.scss";
+const { country } = Astro.props; // country is an object
+
+// Functions
+const formatPopulationNumber = (number) => {
+  return new Intl.NumberFormat("de-DE").format(number);
+};
+---
+
+<article
+  class="card br-5"
+  data-name={country.name.common}
+  data-code={country.cca3}
+>
+  <a href=`/country/${country.cca3}`>
+    <div class="card__image br-5">
+      <img class="br-5" src={country.flags.png} alt={country.flags.alt} />
+    </div>
+    <div class="card__content pb-5 pi-4">
+      <h3 class="heading-3 mb-2">{country.name.official}</h3>
+      <p>
+        <span class="fs-300">Population:&nbsp;</span>
+        <span class="fs-300 txt-neutral-800 value-text"
+          >{formatPopulationNumber(country.population)}</span
+        >
+      </p>
+      <p>
+        <span class="fs-300">Region:&nbsp;</span>
+        <span class="fs-300 txt-neutral-800 value-text">{country.region}</span>
+      </p>
+      <p>
+        <span class="fs-300">Capital:&nbsp;</span>
+        <span class="fs-300 txt-neutral-800 value-text">{country.capital}</span>
+      </p>
+    </div>
+  </a>
+</article>

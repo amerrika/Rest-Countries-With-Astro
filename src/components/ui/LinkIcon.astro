@@ -1,0 +1,15 @@
+---
+import "../../sass/main.scss";
+
+const { href, external, className, label } = Astro.props;
+---
+
+<a
+  href={href}
+  target={external ? "_blank" : null}
+  rel={external ? "noopener noreferrer" : null}
+  aria-label={label}
+  class:list={[className]}
+>
+  <slot />
+</a>

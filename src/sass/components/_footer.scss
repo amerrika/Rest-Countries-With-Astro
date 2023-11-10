@@ -1,0 +1,31 @@
+@use "../abstracts/" as *;
+
+// Prefixed
+.footer {
+  background-color: $footer-bg-clr;
+  color: $footer-clr;
+  font-size: $footer-fs;
+  font-weight: $footer-fw;
+
+  a {
+    font-family: $footer-link-ff;
+    color: $footer-link-clr;
+    letter-spacing: $footer-link-ls;
+    font-size: $footer-link-fs;
+    font-weight: $footer-link-fw;
+
+    &:hover {
+      color: $footer-link-clr-hover;
+    }
+
+    &:focus,
+    &:focus-visible {
+      outline: 2px solid $neutral-900;
+      outline-offset: 2px;
+    }
+    &:focus:not(:focus-visible) {
+      outline:0;
+    }
+  }
+}
+

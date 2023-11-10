@@ -1,0 +1,62 @@
+@use "../abstracts/" as *;
+
+//--- Countries wrapper ---//
+
+.countries {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 5rem;
+}
+
+//--- Search component ---//
+.search-component {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 3rem;
+}
+
+//--- Input ---//
+.input-wrapper {
+  position: relative;
+  width: 100%;
+  @include mq(small) {
+    width: fit-content;
+  }
+
+  input {
+    width: 100%;
+    border: none;
+    outline: none;
+    box-shadow: 1px 1px 6px 1px rgba(0, 0, 0, 0.1);
+    border-radius: 1rem;
+    padding-block: 2rem;
+    padding-inline: 5rem;
+    font-size: $fs-300;
+    background-color: var(--bg-active-100);
+    color: inherit;
+
+    &::placeholder {
+      color: var(--txt-secondary-active);
+      opacity: 1;
+    }
+
+    @include focus(1px);
+  }
+
+  svg {
+    height: 2rem;
+    width: 2rem;
+    position: absolute;
+    left: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    stroke: var(--body-txt-clr);
+  }
+}
+
+.filter-box {
+  border-radius: 1rem;
+  background-color: var(--bg-active-100);
+}

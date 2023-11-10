@@ -1,0 +1,55 @@
+// Font families
+$-ff-bree-serif: "Bree Serif", serif;
+$-ff-dm-sans: "DM Sans", sans-serif;
+
+// Font variations
+$ff-base: $-ff-dm-sans;
+$ff-accent: $-ff-bree-serif;
+
+// Font-sizes
+$fs-base: calc(15px + 0.390625vw);
+
+$fs-100: 1.3rem;
+$fs-200: 1.5rem;
+$fs-300: min($fs-base, 1.6rem);
+$fs-400: min($fs-base, 1.7rem);
+$fs-500: min($fs-base, 1.8rem);
+$fs-600: min($fs-base, 1.9rem);
+$fs-700: min($fs-base, 2rem);
+
+$fs-h1: clamp(3.2rem, 2.5vw + 2rem, 5.5rem);
+$fs-h2: clamp(2.5rem, 1vw + 2rem, 3.5rem);
+$fs-h3: calc(1.8rem + 0.1vw);
+
+// Font-weights
+$fw-300: 300;
+$fw-400: 400;
+$fw-500: 500;
+$fw-600: 600;
+$fw-700: 700;
+
+$fw-light: $fw-300;
+$fw-regular: $fw-400;
+$fw-medium: $fw-500;
+$fw-bold: $fw-700;
+
+// Map for creating font-size utility classes
+$font-sizes: (
+  100: min($fs-base, 1.3rem),
+  200: min($fs-base, 1.5rem),
+  300: min($fs-base, 1.6rem),
+  400: min($fs-base, 1.7rem),
+  500: min($fs-base, 1.8rem),
+  600: min($fs-base, 1.9rem),
+  700: min($fs-base, 2rem),
+);
+
+// Map for creating font-weight utility classes
+$font-weights: (
+  200: 200,
+  300: 300,
+  400: 400,
+  500: 500,
+  600: 600,
+  700: 700,
+);

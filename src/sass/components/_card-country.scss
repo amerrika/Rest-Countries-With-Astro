@@ -1,0 +1,37 @@
+@use "../abstracts/" as *;
+
+.card {
+  background-color: var(--bg-active-100);
+  box-shadow: $box-shadow-card;
+  transition: 0.25s;
+
+  &__image {
+    aspect-ratio: 16/9;
+  }
+
+  &:hover {
+    @include mq(medium) {
+      transform: scale(1.05);
+    }
+    box-shadow: $box-shadow-card-light;
+  }
+
+  .heading-3 {
+    color: var(--body-txt-clr);
+  }
+
+  .value-text {
+    color: var(--txt-secondary-active);
+  }
+
+  a {
+    display: block;
+    height: 100%;
+
+    @include focus;
+  }
+
+  @include mq(small) {
+    max-width: 350px;
+  }
+}

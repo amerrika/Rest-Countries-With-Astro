@@ -1,0 +1,25 @@
+@use "../abstracts/" as *;
+
+.filter-list {
+  font-size: $fs-300;
+  font-weight: $fw-400;
+  letter-spacing: 0.5px;
+  padding-block: 2rem;
+  padding-inline: 3rem;
+  width: 203.3px;
+  background-color: var(--bg-active-100);
+  border-radius: 1rem;
+  box-shadow: 1px 1px 6px 1px rgba(0, 0, 0, 0.1);
+  display: grid;
+  gap: 1.5rem;
+  position: absolute;
+  margin-top: 1rem;
+  z-index: 99;
+
+  li {
+    cursor: pointer;
+    &:hover {
+      @include hover(5px);
+    }
+  }
+}
