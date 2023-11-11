@@ -26,8 +26,6 @@ const allCountries = await fetchAllCountries.json();
 const borderCountries = allCountries.filter((c) =>
   country.borders?.includes(c.cca3)
 );
-console.log(country)
-console.log(borderCountries.length)
 ---
 
 <BaseLayout title={country.name.common + " - Details"}>
