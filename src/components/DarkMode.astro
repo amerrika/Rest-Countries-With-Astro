@@ -32,7 +32,7 @@ import Button from "../components/ui/Button.astro";
   let darkMode = localStorage.getItem("darkMode");
 
   // Functions
-  const enableDarkmode = (store = true) => {
+  const enableDarkmode = () => {
     // set data-mode attribute on html
     html.setAttribute("data-mode", "dark");
     // setting icon for mode button
@@ -42,10 +42,10 @@ import Button from "../components/ui/Button.astro";
     // setting aria-pressed for mode button
     modeToggle.setAttribute("aria-pressed", false);
     // local storage
-    if (store) localStorage.setItem("darkMode", "enabled");
+    localStorage.setItem("darkMode", "enabled");
   };
 
-  const enableLightmode = (store = true) => {
+  const enableLightmode = () => {
     html.setAttribute("data-mode", "light");
     // setting icon for mode button
     modeToggle.querySelector("svg").innerHTML = darkmodeIcon;
@@ -54,7 +54,7 @@ import Button from "../components/ui/Button.astro";
     // setting aria-pressed for mode button
     modeToggle.setAttribute("aria-pressed", true);
     // local storage
-    if (store) localStorage.setItem("darkMode", "disabled");
+    localStorage.setItem("darkMode", "disabled");
   };
 
   // Executions
@@ -63,7 +63,6 @@ import Button from "../components/ui/Button.astro";
 
   modeToggle.addEventListener("click", (e) => {
     const modeAttribute = html.getAttribute("data-mode");
-
     modeAttribute === "light" ? enableDarkmode() : enableLightmode();
   });
 </script>
