@@ -58,13 +58,15 @@
 
 // Mixins added for this project
 
-// Underline hover
+// Underline hover effects desktop only
 @mixin hover($offset: 7px) {
-  text-decoration-line: underline;
-  text-decoration-style: wavy;
-  text-decoration-color: var(--body-text-clr);
-  text-decoration-thickness: 1px;
-  text-underline-offset: $offset;
+  @include mq(medium) {
+    text-decoration-line: underline;
+    text-decoration-style: wavy;
+    text-decoration-color: var(--body-text-clr);
+    text-decoration-thickness: 1px;
+    text-underline-offset: $offset;
+  }
 }
 
 // Focus
